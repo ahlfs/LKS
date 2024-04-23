@@ -1,11 +1,18 @@
 body {
-    background-image: url('/assets/images/background.jpg');
+  background-image: url("/assets/images/background.jpg");
 }
 
-nav {
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
 
+body {
+    margin-top: 20vh;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
