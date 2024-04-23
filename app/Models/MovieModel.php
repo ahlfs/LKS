@@ -12,6 +12,6 @@ class MovieModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'synopsis','poster', 'trailer','genre', 'release_year','runtime', 'cast','age'];
+    protected $allowedFields    = ['title', 'synopsis','poster', 'trailer','genre', 'release_year','runtime', 'cast','age', 'id_user'];
 
 }

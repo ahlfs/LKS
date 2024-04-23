@@ -28,7 +28,7 @@ $level = session()->get('level');
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/"><button type="button" class="btn btn-warning">Home</button></a>
                     </li>
-                    <?php if ($level > 2 || $level = 2 && session('isLogin')) : ?>
+                    <?php if (session()->get('level') >= 2 && session('isLogin')) : ?>
                         <li class="nav-item align-content-center">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,13 +38,16 @@ $level = session()->get('level');
 
                                     <li><a class="dropdown-item" href="/addmovie">Add Movie</a></li>
                                     <li><a class="dropdown-item" href="/mymovie">My Movie</a></li>
-                                <?php elseif ($level = 3 && session('isLogin')) : ?>
-                                    <li><a class="dropdown-item" href="#">User Control System</a></li>
+                                    
+                                    
+                                <?php if (session()->get('level') >= 3 && session('isLogin')) : ?>
+                                    <li><a class="dropdown-item" href="/usercontrol">User Control System</a></li>
                                     <?php endif; ?>
 
                                 </ul>
                             </div>
                         </li>
+                        <?php endif; ?>
                   
 
                 </ul>
@@ -58,7 +61,7 @@ $level = session()->get('level');
                         <?php if (!session('isLogin')) : ?>
                             <a class="nav-link active" aria-current="page" href="/login"><button type="button" class="btn btn-lg btn-primary">Login</button></a>
                         <?php else : ?>
-                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-secondary disabled"><i class="fa-solid fa-user"></i> <?= session()->get('username') ?> <button type="button" class="btn btn-lg btn-primary disabled"></i> <?= session()->get('role') ?></button></button></a>
+                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-secondary disabled"><i class="fa-solid fa-user"></i> <?= session()->get('username') ?><button type="button" class="btn btn-lg btn-primary disabled"></i> <?= session()->get('role') ?></button></button></a>
                             <a class="nav-link active" aria-current="page" href="/logout"><button type="button" class="btn btn-lg btn-primary">Logout</button></a>
                         <?php endif; ?>
                     </li>

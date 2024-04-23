@@ -18,3 +18,7 @@ $routes->get('/addmovie', 'AuthorController::addmovie');
 $routes->post('/submitmovie', 'AuthorController::submitmovie');
 
 $routes->get('/mymovie', 'AuthorController::mymovie');
+
+
+//Admin
+$routes->get('/usercontrol', 'AdminController::usercontrol');

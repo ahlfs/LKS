@@ -30,6 +30,7 @@ class AuthorController extends BaseController
     {
         $datamovie = $this->request->getPost();
         $fileposter = $this->request->getFile('poster');
+        
         $this->validation->run($datamovie, 'movie');
         $errors = $this->validation->getErrors();
         if ($errors) {
@@ -43,14 +44,18 @@ class AuthorController extends BaseController
         }
 
         
+
+        
         $newname = $fileposter->getRandomName();
-        $fileposter->move('/imagestorage', $newname);
+        $fileposter = $this->request->getFile('poster');
 
+        if($fileposter->isValid() && !$fileposter->hasMoved()) {
+        $fileposter->move('/images', $newname);
+        }
 
-        $id_user = $this->session->get('id_user');
         $this->MovieModel->save([
             'title' => $datamovie['title'],
-            'id_user' => $id_user,
+            'id_user' => $this->session->id_user,
             'synopsis' => $datamovie['synopsis'],
             'poster' => $newname,
             'trailer' => $datamovie['trailer'],
