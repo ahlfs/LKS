@@ -50,7 +50,7 @@ class AuthorController extends BaseController
         $fileposter = $this->request->getFile('poster');
 
         if($fileposter->isValid() && !$fileposter->hasMoved()) {
-        $fileposter->move('/images', $newname);
+        $fileposter->move('images', $newname);
         }
 
         $this->MovieModel->save([

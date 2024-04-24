@@ -69,7 +69,29 @@ class Validation extends BaseConfig
             'rules' => 'required|matches[password]', 
             'errors' => [ 
                 'required' => 'Confirm Password need to be filled',
-                'matches' => 'Confirm password and password are different'  
+                'matches' => 'Confirm password and password not matches'  
+            ], 
+        ], 
+    ]; 
+
+    public $username = [ 
+        'username' => [ 
+            'rules' => 'required|min_length[5]|is_unique[users.username]', 
+            'errors' => [ 
+                'required' => 'Confirm Password need to be filled',
+                'min_length' => 'Username atleast 5 character long',
+                'is_unique' => 'Username already taken'     
+            ], 
+        ], 
+    ]; 
+
+    public $email = [ 
+        'username' => [ 
+            'rules' => 'required|min_length[5]|is_unique[users.username]', 
+            'errors' => [ 
+                'required' => 'Confirm Password need to be filled',
+                'min_length' => 'Username atleast 5 character long',
+                'is_unique' => 'Username already taken'     
             ], 
         ], 
     ]; 

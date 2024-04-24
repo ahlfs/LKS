@@ -1,38 +1,38 @@
 <?= $this->extend('layouts/navbar') ?>
 <?= $this->section('content') ?>
 
+<div class="container">
 <div class="card">
   <div class="card-body">
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">No</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
+  <?php $i = 0; ?>
+    <?php foreach($daftaruser as $du) :?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <?php $i++ ?>
+      <th scope="row"><?= $i ?></th>
+      <td><?= $du['username'] ?></td>
+      <td><?= $du['email'] ?></td>
+      <td><?= $du['level'] ?></td>
+      <td>
+      <a href="/edituser/<?= $du['id_user'] ?>"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square fa-lg"></i> Edit</button></a>
+      <a href="/deleteuser/<?= $du['id_user'] ?>"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash fa-lg"></i> Delete</button></a>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <?php endforeach; ?>
   </tbody>
 </table>
   </div>
+</div>
 </div>
 
 <?= $this->endSection() ?>
