@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\UsersModel;
 use App\Models\MovieModel;
+use App\Models\RatingModel;
+
 
 class UsersController extends BaseController
 {
@@ -13,10 +15,12 @@ class UsersController extends BaseController
     protected $session;
     protected $validation;
     protected $MovieModel;
+    protected $RatingModel;
     public function __construct() {
         $this->session = \Config\Services::session();
         $this->UsersModel = new UsersModel();
         $this->MovieModel = new MovieModel();
+        $this->RatingModel = new RatingModel();
         $this->validation = \Config\Services::validation();
     }
     public function index()
@@ -31,8 +35,10 @@ class UsersController extends BaseController
     public function moviedetail($id)
     {
         $moviedetail = $this->MovieModel->where('id_movie', $id)->first();
+        $rating = $this->RatingModel->where('id_movie', $id)->findAll();
         $data = [
-            'movie' => $moviedetail
+            'movie' => $moviedetail,
+            'rating' => $rating
         ];
         return view('users/moviedetail', $data);
     }

@@ -1,5 +1,5 @@
 body {
-  background-image: url("/assets/images/background.jpg");
+  background-image: url("/assets/images/background.png");
 }
 
 header {
@@ -10,9 +10,25 @@ header {
 }
 
 body {
-    margin-top: 20vh;
+  margin-top: 20vh;
 }
 
 .center {
   text-align: center;
+}
+
+.no-text-decoration {
+  text-decoration: none;
+}
+
+.mybox {
+  border-radius: 28px;
+background: #e0e0e0;
+box-shadow:  8px 8px 16px #bebebe,
+             -8px -8px 16px #ffffff;
+}
+
+.myposter {
+  width: 300px;
+  height: 400px;
 }

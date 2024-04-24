@@ -20,11 +20,13 @@ $routes->get('/', 'UsersController::index');
 $routes->get('/moviedetail/(:num)', 'UsersController::moviedetail/$1');
 
 //Subscriber
-
+$routes->post('/ratemovie/(:num)', 'SubscriberController::ratemovie/$1');
 //Author
 $routes->get('/addmovie', 'AuthorController::addmovie');
 $routes->post('/submitmovie', 'AuthorController::submitmovie');
-
+$routes->get('/editmovie/(:num)', 'AuthorController::editmovie/$1');
+$routes->post('/updatemovie/(:num)', 'AuthorController::updatemovie/$1');
+$routes->get('/deletemovie/(:num)', 'AuthorController::deletemovie/$1');
 $routes->get('/mymovie', 'AuthorController::mymovie');
 
 

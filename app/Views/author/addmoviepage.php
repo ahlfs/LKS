@@ -98,8 +98,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Trailer</label>
-                    <input type="text" name="trailer" class="form-control" id="exampleInputPassword1">
-
+                    <input type="text" name="trailer" class="form-control" id="exampleInputPassword1" <?= old('trailer') ?>>
                     <?php if (session()->getFlashdata('trailerError')) : ?>
                         <div class="alert alert-danger" role="alert">
                             <?= session()->getFlashdata('trailerError') ?>
@@ -109,7 +108,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
                 </div>
 
             </form>

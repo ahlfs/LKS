@@ -26,13 +26,13 @@ $level = session()->get('level');
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/"><button type="button" class="btn btn-warning">Home</button></a>
+                        <a class="nav-link active" aria-current="page" href="/"><button type="button" class="btn btn-warning fw-bold"><i class="fa-solid fa-house fa-lg"></i> Home</button></a>
                     </li>
                     <?php if (session()->get('level') >= 2 && session('isLogin')) : ?>
                         <li class="nav-item align-content-center">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Menu
+                                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-compass fa-lg" style="color: #B197FC;"></i> Menu
                                 </button>
                                 <ul class="dropdown-menu">
 
@@ -61,7 +61,7 @@ $level = session()->get('level');
                         <?php if (!session('isLogin')) : ?>
                             <a class="nav-link active" aria-current="page" href="/login"><button type="button" class="btn btn-lg btn-primary">Login</button></a>
                         <?php else : ?>
-                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-secondary disabled"><i class="fa-solid fa-user"></i> <?= session()->get('username') ?><button type="button" class="btn btn-lg btn-primary disabled"></i> <?= session()->get('role') ?></button></button></a>
+                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-secondary disabled"><i class="fa-solid fa-user"></i></i>  <?= session()->get('username') ?></i> <span class="badge text-bg-primary"><?= session()->get('role') ?></span></button></a>
                             <a class="nav-link active" aria-current="page" href="/logout"><button type="button" class="btn btn-lg btn-primary">Logout</button></a>
                         <?php endif; ?>
                     </li>

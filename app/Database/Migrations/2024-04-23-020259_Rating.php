@@ -16,8 +16,16 @@ class Rating extends Migration
                 'auto_increment' => true,
             ],
             'id_user' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'username' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
+            ],
+            'id_movie' => [
+                'type' => 'INT',
+                'constraint' => 11,
             ],
             'message' => [
                 'type' => 'VARCHAR',
