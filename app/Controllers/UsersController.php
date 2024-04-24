@@ -42,4 +42,17 @@ class UsersController extends BaseController
         ];
         return view('users/moviedetail', $data);
     }
+
+    public function search()
+    {
+        $data = $this->request->getPost();
+        $keyword = $data['keyword'];
+        $movie = $this->MovieModel->like('title', $keyword)->findAll();
+        
+        $data = [
+            'movie' => $movie,
+            'keyword' => $keyword,
+        ];
+        return view('users/searchresult', $data);
+    }
 }

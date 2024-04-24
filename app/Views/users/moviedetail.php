@@ -12,7 +12,7 @@
                 <div class="col-md-8">
 
                     <h2 class="text-center mb-5"><?= $movie['title'] ?></h2>
-                    <?php if (session('id_user') == $movie['id_user']) : ?>
+                    <?php if (session('id_user') == $movie['id_user'] || session('level') == 3) : ?>
                         <div class="ms-auto">
                             <a href="/editmovie/<?= $movie['id_movie'] ?>"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square fa-lg"></i> Edit</button></a>
                             <a href="/deletemovie/<?= $movie['id_movie'] ?>"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash fa-lg"></i> Delete</button></a>

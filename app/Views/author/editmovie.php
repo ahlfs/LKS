@@ -98,7 +98,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Trailer</label>
-                    <input type="text" name="trailer" class="form-control" id="exampleInputPassword1" value="<?= $datamovie['id_movie'] ?>">
+                    <input type="text" name="trailer" class="form-control" id="exampleInputPassword1" value="<?= $datamovie['trailer'] ?>">
 
                     <?php if (session()->getFlashdata('trailerError')) : ?>
                         <div class="alert alert-danger" role="alert">

@@ -18,6 +18,7 @@ $routes->post('/auth/valid_register', 'AuthController::valid_register');
 //Anonymous / Users
 $routes->get('/', 'UsersController::index');
 $routes->get('/moviedetail/(:num)', 'UsersController::moviedetail/$1');
+$routes->post('/search', 'UsersController::search');
 
 //Subscriber
 $routes->post('/ratemovie/(:num)', 'SubscriberController::ratemovie/$1');

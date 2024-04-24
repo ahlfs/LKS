@@ -51,9 +51,11 @@ $level = session()->get('level');
                   
 
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form method="post" action="/search" class="d-flex flex-fill" role="search">
+                    
+                    <input class="form-control me-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
+                    <button type="submit" class="btn btn-outline-success"><i class="fa-solid fa-magnifying-glass fa-lg"></i></button>
+                
                 </form>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -61,7 +63,7 @@ $level = session()->get('level');
                         <?php if (!session('isLogin')) : ?>
                             <a class="nav-link active" aria-current="page" href="/login"><button type="button" class="btn btn-lg btn-primary">Login</button></a>
                         <?php else : ?>
-                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-secondary disabled"><i class="fa-solid fa-user"></i></i>  <?= session()->get('username') ?></i> <span class="badge text-bg-primary"><?= session()->get('role') ?></span></button></a>
+                            <a class="nav-link active" aria-current="page"><button type="button" class="btn btn-lg btn-light disabled"><i class="fa-solid fa-user"></i></i>  <?= session()->get('username') ?></i> <span class="badge text-bg-primary"><?= session()->get('role') ?></span></button></a>
                             <a class="nav-link active" aria-current="page" href="/logout"><button type="button" class="btn btn-lg btn-primary">Logout</button></a>
                         <?php endif; ?>
                     </li>
@@ -76,7 +78,7 @@ $level = session()->get('level');
 
 
 
-<body>
+<body class="mb-5">
 
     <?= $this->renderSection('content') ?>
 

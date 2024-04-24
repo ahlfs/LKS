@@ -52,9 +52,9 @@ class AuthorController extends BaseController
         $newname = $fileposter->getRandomName();
         $fileposter = $this->request->getFile('poster');
 
-        if ($fileposter->isValid() && !$fileposter->hasMoved()) {
-            $fileposter->move('images', $newname);
-        }
+
+        $fileposter->move('images', $newname);
+
 
         $this->MovieModel->save([
             'title' => $datamovie['title'],
@@ -120,7 +120,7 @@ class AuthorController extends BaseController
         }
 
         if ($fileposter == '') {
-           $newname = $datamovieold['poster'];
+            $newname = $datamovieold['poster'];
         }
 
         $this->MovieModel->save([
@@ -136,6 +136,8 @@ class AuthorController extends BaseController
             'cast' => $datamovie['cast'],
             'age' => $datamovie['age'],
         ]);
+
+        return redirect()->to('/moviedetail/' . $id);
     }
 
     public function deletemovie($id)

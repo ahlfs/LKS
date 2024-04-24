@@ -1,10 +1,9 @@
-
 <?= $this->extend('layouts/navbar') ?>
 <?= $this->section('content') ?>
 
 <div class="container">
 <div class="alert alert-light fw-bold" role="alert">
-<?= session()->get('username') ?>'s movie post
+  You searched for "<?= $keyword ?>"
 </div>
 </div>
 
@@ -12,10 +11,10 @@
   <div class="row">
   <?php if ($movie) : ?>
     <?php foreach ($movie as $m) : ?>
-      <div class="col-md-4">
+      <div class="col-md-3">
       <a href="/moviedetail/<?= $m['id_movie'] ?>">
         <div class="mybox mx-3 my-3">
-          <div class="card" style="width: 100%;">
+          <div class="card" style="width: 18rem;">
             <img src="/images/<?= $m['poster'] ?>" class="card-img-top" alt="...">
             <div class="card-body">
               <p class="card-text fw-bold"><?= $m['title'] ?></p>
